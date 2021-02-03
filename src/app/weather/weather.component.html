@@ -1,0 +1,93 @@
+<div class="bg-white shadow-lg rounded-lg m-2 w-72 animate__animated animate__fadeIn animate__slow"
+  [ngClass]="{'border-2 border-purple-100 animate__zoomIn slower': weather.today}"
+>
+
+  <div class="flex justify-between px-4 pt-4">
+    <div class="rounded-full shadow-lg w-20 h-20 flex justify-center">
+      <img class="" src='{{"http://openweathermap.org/img/w/" + weather.weather[0].icon + ".png"}}'>
+    </div>
+    <div class="self-center font-medium">
+      <p>{{weather['dt_txt'] | date : "HH:MM"}}</p>
+      <p class="text-sm pt-1">{{weather['main']['temp']}}<strong>&#8451;</strong></p>
+      <p class="text-sm pt-1">{{weather.weather[0]['main']}}</p>
+    </div>
+  </div>
+
+  <div *ngIf="showDetails" class="p-4 text-sm">
+    <!-- wind -->
+    <div class="bg-gray-100 rounded-lg my-1 p-2">
+      <div class="font-medium">Wind</div>
+      <div class="flex p-1">
+        <div class="flex-1">Deg</div>
+        <div class="flex-1 text-right">{{weather['wind']['deg']}}</div>
+      </div>
+      <div class="flex p-1">
+        <div class="flex-1">Speed</div>
+        <div class="flex-1 text-right">{{weather['wind']['speed']}} km</div>
+      </div>
+    </div>
+
+    <!-- wind -->
+    <div class="flex py-2">
+      <div class="flex-1">Visibility</div>
+      <div class="flex-1 text-right">{{weather['visibility']}}</div>
+    </div>
+
+    <div class="flex py-2">
+      <div class="flex-1">Humidity</div>
+      <div>{{weather['main']['humidity']}} %</div>
+    </div>
+
+    <div class="flex py-2">
+      <div class="flex-1">Temp</div>
+
+    </div>
+
+    <div class="flex py-2">
+      <div class="flex-1">Feels like</div>
+      <div>{{weather['main']['feels_like']}}</div>
+    </div>
+  </div>
+
+  <div class="">
+    <div class="bg-purple-50 cursor-pointer p-2 rounded-b-lg text-sm text-blue-800 text-center font-medium mt-4" (click)="showDetails = !showDetails;">
+      {{showDetails ? 'Hide Details' : 'Show Details'}}
+    </div>
+  </div>
+
+<!--  <div class="flex py-2">-->
+<!--    <div class="flex-1">grnd_level</div>-->
+<!--    <div>{{weather['main']['grnd_level']}}</div>-->
+<!--  </div>-->
+
+<!--  <div class="flex py-2">-->
+<!--    <div class="flex-1">pressure</div>-->
+<!--    <div>{{weather['main']['pressure']}}</div>-->
+<!--  </div>-->
+
+<!--  <div class="flex py-2">-->
+<!--    <div class="flex-1">sea_level</div>-->
+<!--    <div>{{weather['main']['sea_level']}}</div>-->
+<!--  </div>-->
+
+
+
+<!--  <div class="flex py-2">-->
+<!--    <div class="flex-1">temp_kf</div>-->
+<!--    <div>{{weather['main']['temp_kf']}}</div>-->
+<!--  </div>-->
+
+<!--  <div class="flex py-2">-->
+<!--    <div class="flex-1">temp_max</div>-->
+<!--    <div>{{weather['main']['temp_max']}}</div>-->
+<!--  </div>-->
+
+<!--  <div class="flex py-2">-->
+<!--    <div class="flex-1">temp_min</div>-->
+<!--    <div>{{weather['main']['temp_min']}}</div>-->
+<!--  </div>-->
+
+
+  <!-- weather -->
+<!--  <div>{{weather.weather[0]['description']}}</div>-->
+</div>
