@@ -22,7 +22,8 @@ export class AppComponent implements OnInit {
 
   getWeathers(): void {
     console.log('called');
-    this.http.get('https://api.openweathermap.org/data/2.5/forecast?q=sydney&appid=311f955af54e5967569d27adde85d4c4')
+    const token = '';
+    this.http.get('https://api.openweathermap.org/data/2.5/forecast?q=sydney&appid=' + token)
       .toPromise()
       .then((res: any) => {
         if (res) {
